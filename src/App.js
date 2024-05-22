@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Outlet, Link } from "react-router-dom";
 import ViewStudents from "./components/ViewStudents";
 import AddStudents from "./components/AddStudents";
+import NavBar from "./components/NavBar";
 
 export default function App(){
     const studentData = [
@@ -42,8 +42,13 @@ console.log('without variable')
 
     return (
       <>
+        <div className="App" > 
+          <header>
+          <h1>Welcome to react router DOM sample</h1>
+            <NavBar />
+          </header>
+        </div>
         <div className="flex flex-row">
-        <Link to={`contact`}>Contact US</Link>
               <div className="basis-1/2 py-5 m-4 ">
                 <ViewStudents 
                  data = { student } 
@@ -55,6 +60,7 @@ console.log('without variable')
                 <AddStudents addStudentData = { addNewStudent } />
               </div>
         </div>
+        
      </>
     );
 }

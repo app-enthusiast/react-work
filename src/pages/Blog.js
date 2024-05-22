@@ -2,11 +2,11 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 
 function Blog() {
-    let {blogId} = useParams();
+    let { blogId } = useParams();
 
   return (
     <div>
-    blog page-id: { blogId }
+    <h2>Blog page-id: { blogId }</h2>
     </div>
   )
 }
