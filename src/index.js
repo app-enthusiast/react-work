@@ -7,30 +7,42 @@ import Home from './pages/Home';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AppLayout from './pages/layout/AppLayout';
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import './index.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <AppLayout />,
+
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-  },
-  {
-   path: "/about",
-   element: <About />,
-  },
-  {
-    path: "/blog/:blogId",
-    element: <Blog />,
+    children: [
+      {
+        index:true,
+        element: <App />
+      },
+      {
+        path: "home",
+        element: <Home />,
+      },
+      {
+        path: "main",
+        element: <App />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+       path: "/about",
+       element: <About />,
+      },
+      {
+        path: "/blog/:blogId",
+        element: <Blog />,
+      },
+    ],
   },
 ]);
 

@@ -42,12 +42,6 @@ console.log('without variable')
 
     return (
       <>
-        <div className="App" > 
-          <header>
-          <h1>Welcome to react router DOM sample</h1>
-            <NavBar />
-          </header>
-        </div>
         <div className="flex flex-row">
               <div className="basis-1/2 py-5 m-4 ">
                 <ViewStudents 
