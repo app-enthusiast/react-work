@@ -1,14 +1,12 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-
-function Blog() {
-    let { blogId } = useParams();
-
+import { Outlet } from "react-router-dom";
+export default function Blog() {
   return (
-    <div>
-    <h2>Blog page-id: { blogId }</h2>
+    <>
+    <h2>BlogListingPage </h2>
+    <div className='border: bg-red-100 font-bold'>
+        <Outlet />
     </div>
+    </>
   )
 }
-
-export default Blog

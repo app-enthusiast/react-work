@@ -1,15 +1,14 @@
 import React from 'react';
-import App from '../App';
-import { Outlet, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 export default function NavBar() {
   return (
-    <div>
-      <ul>
-        <li> <Link to={ `home` } >Home</Link> </li>
-        <li> <Link to={ `contact` } >Contact</Link> </li>
-        <li> <Link to={ `about` } >About </Link> </li>
-        <li> <Link to={ `main` } >Main </Link> </li>
+    <nav className="bg-gray-800 text-white py-8">
+      <ul className="flex items-center">
+        <li> <NavLink to={ `home` } className="text-white font-bold text-xl hover:text-gray-300 mr-4">Home</NavLink> </li>
+        <li> <NavLink to={ `contact` } className="text-white font-bold text-xl hover:text-gray-300 mr-4" >Contact</NavLink> </li>
+        <li> <NavLink to={ `about` }  className="text-white font-bold text-xl hover:text-gray-300 mr-4" >About </NavLink> </li>
+        <li> <NavLink to={ `main` }  className="text-white font-bold text-xl hover:text-gray-300 mr-4" >Main </NavLink> </li>
       </ul>
-    </div>
+    </nav>
   )
 }

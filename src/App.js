@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ViewStudents from "./components/ViewStudents";
 import AddStudents from "./components/AddStudents";
-import NavBar from "./components/NavBar";
+
 
 export default function App(){
     const studentData = [
