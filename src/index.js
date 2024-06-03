@@ -1,57 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";           
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";           
 import ErrorPage from './pages/ErrorPage';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import About from './pages/About';
-import Home from './pages/Home';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AppLayout from './pages/layout/AppLayout';
-
+import Layout from './pages/layout/Layout';
 import './index.css';
 import BlogDetail from './pages/BlogDetail';
+import Login from './pages/Login';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <AppLayout />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
-        element: <App />
-      },
-      {
-        path: "home",
-        element: <Home />,
-      },
-      {
-        path: "main",
-        element: <App />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-       path: "/about",
-       element: <About />,
-      },
-      {
-       path: "/blog",
-       element: <Blog />,
-       children: [
-        {
-          path: "blogs/:blogId",
-          element: <BlogDetail />,
-        }
-       ],
-      }
-    ],
-  }
-]);
+const router = createBrowserRouter( createRoutesFromElements (
+  <Route Component = { Layout } path="/" errorElement = { <ErrorPage /> } >
+    <Route  index Component = { App } />
+    <Route  path='contact' Component={ Contact  } />
+    <Route  path='about' Component = { About } />
+    <Route  path='login' Component = { Login } />
+    <Route  path='blog' Component = { Blog } >
+        <Route 
+         // this path will match URLs like
+         // - /blogs/react
+         // - /blogs/django
+         path='blogs/:blogId'
+         // the matching param will be available to the loader
+        Component = { BlogDetail } 
+        />
+    </Route>
+  </Route>
+));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -59,6 +37,4 @@ root.render(
     <RouterProvider router= { router } />
   </React.StrictMode>
 );
-
-
 reportWebVitals();

@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import ViewStudents from "./components/ViewStudents";
 import AddStudents from "./components/AddStudents";
 
-
 export default function App(){
     const studentData = [
-      {id:12, name:'saqib', age:44, grade:'BSCS', email: 'saqibkhattak16@gmail.com'},
-      {id :22, name:'rehman', age:44, grade:'BSCS', email: 'khan_fuuast@gmail.com'},
+      {id:12, name:'rohit', age:44, grade:'BSCS', email: 'saqibkhattak16@gmail.com'},
+      {id :22, name:'suneel', age:44, grade:'BSCS', email: 'khan_fuuast@gmail.com'},
       {id :32, name:'lim', age:33, grade:'MCS', email: 'lim@gmail.com'},
       {id:44, name:'shakeel', age:34, grade:'DBA', email:'shakeel@gmail.com'},
       {id :56, name:'kem', age:13, grade:'MSCS', email: 'kim@gmail.com'}
@@ -36,7 +35,6 @@ console.log('without variable')
       // });
       const  newStudent = student.filter((stdObj) => stdObj.id !== studentId )
       // if (a==2) echo 'hello world'; 
-      console.log(newStudent);
       setStudent( newStudent );
     }
 

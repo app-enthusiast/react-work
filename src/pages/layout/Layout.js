@@ -2,19 +2,18 @@ import React from 'react'
 import { Outlet } from "react-router-dom";
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-// import App from '../../App';
 
-export default function AppLayout() {
+export default function Layout() {
   return (
-    <>
-    <header className='bg-gray-400'>
+    <div className=''>
+    <header className=''>
       <h1 className=''>Welcome to react router DOM sample</h1>
-      <NavBar />
+      <NavBar /> <br />
     </header>
-    <section className='content-area'>
+    <main className='content-area'>
          <Outlet />
-    </section>
+    </main>
     <footer><Footer /></footer>
-    </>
+    </div>
   )
 }
